@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap');
+
+$google-font-roboto: "Roboto", sans-serif;
+$google-font-source-sans-pro: "Source Sans Pro", sans-serif;
+$roboto-mono: "Roboto Mono", monospace;
+
+.container11 {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text10 {
+    font-family: $roboto-mono;
+    color: #111;
+    font-variation-settings: "wght" var(--font-weight, 100);
+    font-size: 7rem;
+    margin-left: 1px;
+    margin-right: 1px;
+}

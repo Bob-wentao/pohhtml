@@ -22,6 +22,87 @@
  
 
 */
+const timeline = gsap.timeline({ repeat: -1 });
+const chars = document.querySelectorAll(".text10");
+gsap.registerPlugin(ScrollTrigger);
+
+/* SMOOTH SCROLL */
+const scroller = new LocomotiveScroll({
+    el: document.querySelector(".container"),
+    smooth: true
+});
+
+scroller.on("scroll", ScrollTrigger.update);
+
+ScrollTrigger.scrollerProxy(".container", {
+    scrollTop(value) {
+        return arguments.length
+            ? scroller.scrollTo(value, 0, 0)
+            : scroller.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+        return {
+            left: 0,
+            top: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    }
+});
+
+ScrollTrigger.addEventListener("refresh", () => scroller.update());
+
+ScrollTrigger.refresh();
+
+/* COLOR CHANGER */
+window.addEventListener("load", function () {
+    const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+    scrollColorElems.forEach((colorSection, i) => {
+        const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
+        const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
+
+        ScrollTrigger.create({
+            trigger: colorSection,
+            scroller: ".container",
+            start: "top 50%",
+            onEnter: () =>
+                gsap.to("body", {
+                    backgroundColor: colorSection.dataset.bgcolor,
+                    color: colorSection.dataset.textcolor,
+                    overwrite: "auto"
+                }),
+            onLeaveBack: () =>
+                gsap.to("body", {
+                    backgroundColor: prevBg,
+                    color: prevText,
+                    overwrite: "auto"
+                })
+        });
+    });
+});
+
+gsap.set(".one", { color: "#3498DB" });
+gsap.set(".two", { color: "#E74C3C" });
+gsap.set(".three", { color: "#F1C40F" });
+gsap.set(".four", { color: "#3498DB" });
+gsap.set(".five", { color: "#27AE60" });
+gsap.set(".six", { color: "#E74C3C" });
+gsap.set(".seven", { color: "#F1C40F" });
+gsap.set(".eight", { color: "#3498DB" });
+gsap.set(".nine", { color: "#27AE60" });
+timeline.from(chars, { opacity: 1, scale: 0, ease: "sine", delay: 0.25 })
+    .to(".text10", {
+        "--font-weight": 900,
+        duration: .9,
+        ease: "sine.inOut",
+        stagger: {
+            yoyo: true,
+            each: 0.1,
+            repeat: -1
+        }
+    }, 1);
+var tl = gsap.timeline({ repeat: -1 });
+tl.to("h11", 30, { backgroundPosition: "-960px 0" });
 
 $(function () {
     "use strict";

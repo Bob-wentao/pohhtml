@@ -35,6 +35,31 @@ YARA - ONE PAGE TEMPLATE
 /* --------------------------------------
   2. GLOBAL STYLES
 -----------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+
+.container11 {
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    background: #1d1d1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text10 {
+    font-family: "Roboto Mono", monospace;
+    color: #111;
+    font-variation-settings: "wght" var(--font-weight, 100);
+    font-size: 15rem;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+/*# sourceMappingURL=style2.css.map */
+
 *,
 *::before,
 *::after {
@@ -44,10 +69,34 @@ YARA - ONE PAGE TEMPLATE
     box-sizing: border-box;
 }
 
+.wrapper {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+h11 {
+    max-width: 50%;
+    font-size: 70px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    color: #540032;
+}
+
+
+.title11 {
+    background-image: url(https://cdn.pixabay.com/photo/2017/07/03/20/17/abstract-2468874_960_720.jpg);
+    background-attachment: fixed;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
+
 
 /*------ width < 75em ------*/
 @media only screen and (max-width: 75em) {
@@ -70,14 +119,23 @@ html {
     }
 }
 
+
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #353434;
+    /* background-color: #1d1d1d; */
+    margin: 0;
+    padding: 0;
     font-size: 1.6rem;
     color: #fff;
     line-height: 1.6;
     letter-spacing: .08rem;
     font-weight: 400;
+    color: var(--text-color);
+    background: var(--bg-color);
+    transition: 0.3s ease-out;
+    overflow-x: hidden;
+
 }
 
 .section-title .title {
@@ -654,6 +712,7 @@ nav.scrollUp {
 /* --------------------------------------
   7. COUNT
 -----------------------------------------*/
+
 .counts {
     padding: 80px 0;
     background: url("../img/count-bg.jpg") no-repeat fixed center;
